@@ -1,104 +1,55 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+username =input('Enter User Name')
+password = ""
+attempt = 0
+flag = 0
+while(attempt!=3):
+  password = input("Enter Password")
+  if(password=="Rossiya"):
+    flag = 1
+    break
+  else:
+    attempt=attempt+1
+    if(attempt==3):
+      print ("You Have Tried The Maximum Amount Of Time To Enter A Password")
+      quit() 
+if(flag==1):
+  print ("Welcome - Guess The Song", username)
+#This part of my code is allowing authorised users to enter the game. This does not allow other users into my game. It gives three attempts before not letting someone access the game.
 
-# C extensions
-*.so
+import random
+Song = 'Song Name:'
+sname=['Reseaux Niska', 'Sale Niska', 'Ah Bon? Niska', 'Story X Niska', 'Amour X Niska','Tuba Life Niska', 'La Wewer Niska', 'Favelas Niska', 'Bella Maitre Gims',  'Sapes Comme Jamain Maitre Gims', 'Corazon Maitre Gims', 'Cameleon Maitre Gims', 'Est-Ce Que Tu M aimes Maitre Gims', 'Oulala Maitre Gims', 'Laissez Passer Maitre Gims', 'Tout Donner Maitre Gims', 'La Meme Maitre Gims', 'Je Te Pardonne Maitre Gims', 'Loin Maitre Gims', 'Mi GNA Maitre Gims', 'Fuegolando Maitre Gims','T es Partie Maitre Gims','Bonita Maitre Gims', 'Ou Aller Maitre Gims','Entre Nous C est Mort Maitre Gims','Sur Ma Route Black M','Genesis MMZ','Bubble MMZ','Loin Des Etoiles MMZ','Tout Pour Le Gang MMZ','Bulma MMZ', 'Ma Bulle MMZ', 'Comme Dans Un Reve MMZ']  
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+game_song = random.choice(sname)
+print ((game_song)[:1 :1])
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+def guess_song(song, score):
+  for guesscount in range(4):
+    if guessscount == 2:
+      print("Too Many Guesses LEAVE!")
+      break
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+    guess = input("Guess: {} " .format(gusscount+1))
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
+    if not guess:
+      print("Are You Broken?")
+      continue
 
-# Translations
-*.mo
-*.pot
+    if guess == sname:
+      if guesscount == 0:
+        print("Well Done You Were Correct!")
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
+        score += 1
 
-# Flask stuff:
-instance/
-.webassets-cache
+      break
 
-# Scrapy stuff:
-.scrapy
+    else:
+      print("WRONG JUST LEAVE!")
+      continue
 
-# Sphinx documentation
-docs/_build/
+  return score
 
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
+def _name_():
+ if _name_ == "_main_":
+   final_score = guess_song(song, 0)
+   print("final score {}:" .format(final_score))
